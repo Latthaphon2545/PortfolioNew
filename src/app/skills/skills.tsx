@@ -19,23 +19,23 @@ import { VscAzure } from 'react-icons/vsc'
 
 const skillCategories = {
   Frontend: [
-    { name: 'HTML', icon: SiHtml5, color: '#e34c26' },
-    { name: 'CSS', icon: SiCss3, color: '#264de4' },
-    { name: 'JavaScript', icon: SiJavascript, color: '#f0db4f' },
-    { name: 'TypeScript', icon: SiTypescript, color: '#007acc' },
-    { name: 'React', icon: SiReact, color: '#61DAFB' },
-    { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#38b2ac' },
+    { name: 'HTML', icon: SiHtml5, color: '#e34c26', value: 100 },
+    { name: 'CSS', icon: SiCss3, color: '#264de4', value: 70 },
+    { name: 'JavaScript', icon: SiJavascript, color: '#f0db4f', value: 100 },
+    { name: 'TypeScript', icon: SiTypescript, color: '#007acc', value: 100 },
+    { name: 'React', icon: SiReact, color: '#61DAFB', value: 100 },
+    { name: 'Next.js', icon: SiNextdotjs, color: '#000000', value: 80 },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#38b2ac', value: 100 },
   ],
   Backend: [
-    { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
-    { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
+    { name: 'Node.js', icon: SiNodedotjs, color: '#339933', value: 90 },
+    { name: 'Firebase', icon: SiFirebase, color: '#FFCA28', value: 70 },
   ],
-  Database: [{ name: 'MongoDB', icon: SiMongodb, color: '#47A248' }],
+  Database: [{ name: 'MongoDB', icon: SiMongodb, color: '#47A248', value: 90 }],
   'DevOps & Tools': [
-    { name: 'Git', icon: SiGit, color: '#F05032' },
-    { name: 'AWS', icon: SiAmazon, color: '#FF9900' },
-    { name: 'Azure AD', icon: VscAzure, color: '#0078D4' },
+    { name: 'Git', icon: SiGit, color: '#F05032', value: 50 },
+    { name: 'AWS', icon: SiAmazon, color: '#FF9900', value: 40 },
+    { name: 'Azure AD', icon: VscAzure, color: '#0078D4', value: 50 },
   ],
 }
 
@@ -65,34 +65,28 @@ const Skills: React.FC = () => {
               <div className='h-px bg-base-300 flex-grow ml-4'></div>
             </div>
 
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 md:gap-6'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6'>
               {skills.map((skill, index) => {
                 const IconComponent = skill.icon
                 return (
                   <div
                     key={index}
-                    className='group perspective-500'
-                    style={{ perspective: '1000px' }}
+                    className='relative bg-base-100 rounded-lg shadow-lg p-5 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105'
                   >
-                    <div className='relative transform transition-all duration-500 group-hover:rotate-y-180'>
-                      {/* Front of card */}
-                      <div className='bg-base-100 rounded-xl shadow-md p-5 flex flex-col items-center justify-center h-32 sm:h-36 overflow-hidden transition-all duration-300 group-hover:shadow-lg border-t border-base-200'>
-                        <IconComponent
-                          className='text-4xl sm:text-5xl mb-4 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1'
-                          style={{ color: skill.color }}
-                        />
-                        <h4 className='text-sm sm:text-base font-medium text-center'>
-                          {skill.name}
-                        </h4>
-                      </div>
-
-                      {/* Visual effects on hover */}
-                      <div
-                        className='absolute inset-0 rounded-xl bg-gradient-to-br opacity-0 group-hover:opacity-10'
-                        style={{
-                          background: `linear-gradient(135deg, ${skill.color}33, ${skill.color}11)`,
-                        }}
-                      ></div>
+                    <IconComponent
+                      className='text-4xl sm:text-5xl mb-4 transition-all duration-300'
+                      style={{ color: skill.color }}
+                    />
+                    <h4 className='text-sm sm:text-base font-medium text-center'>
+                      {skill.name}
+                    </h4>
+                    <div className='w-full mt-2 flex items-center justify-between gap-2'>
+                      <progress
+                        className='progress progress-primary'
+                        value={skill.value}
+                        max='100'
+                      />
+                      <span className='font-semibold'>{skill.value}%</span>
                     </div>
                   </div>
                 )
@@ -105,15 +99,6 @@ const Skills: React.FC = () => {
       {/* Floating shapes for visual effect */}
       <div className='absolute top-20 right-10 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl -z-10'></div>
       <div className='absolute bottom-20 left-10 w-72 h-72 bg-secondary opacity-5 rounded-full blur-3xl -z-10'></div>
-
-      <style jsx>{`
-        .perspective-500 {
-          perspective: 1000px;
-        }
-        .rotate-y-180 {
-          transform: rotateY(10deg);
-        }
-      `}</style>
     </section>
   )
 }

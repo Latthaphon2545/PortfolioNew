@@ -1,7 +1,7 @@
 'use client'
 
 import AboutMe from './aboutMe/aboutMe'
-import HomePage from './homepage/home_page'
+import HomePage from './homepage/homePage'
 import Projects from './projects/projects'
 import Skills from './skills/skills'
 import Experiences from './experiences/experiences'

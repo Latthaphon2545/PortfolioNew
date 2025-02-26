@@ -476,20 +476,20 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center'>
+        <div className='carousel carousel-center bg-primary bg-opacity-30 rounded-box min-w-full max-w-full overflow-x-auto p-4 space-x-4'>
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className='card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer w-full max-w-xs'
+              className='card bg-base-100 shadow-2xl hover:shadow-2xl transition-transform duration-300 hover:scale-105 cursor-pointer w-80 h-[60vh] flex-shrink-0'
               onClick={() => handleProjectClick(project)}
             >
-              <figure className='relative h-48 overflow-hidden'>
+              <figure className='relative h-48 w-full overflow-hidden'>
                 <Image
                   src={project.img}
                   alt={project.name}
-                  fill
-                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw'
-                  className='object-cover'
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded-t-xl'
                   priority={index < 4}
                 />
                 <div className='absolute top-2 right-2'>
@@ -499,7 +499,7 @@ export default function Projects() {
                 </div>
                 {project.videoUrl && (
                   <div className='absolute bottom-2 right-2'>
-                    <div className='badge badge-accent'>
+                    <div className='badge badge-accent flex items-center gap-1 px-2 py-1'>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
                         className='h-4 w-4'
@@ -525,19 +525,15 @@ export default function Projects() {
                   </div>
                 )}
               </figure>
-              <div className='card-body flex flex-col justify-between'>
-                <div className='card-titled flex flex-col justify-around items-center gap-3 min-h-16'>
-                  <h2 className='text-lg font-bold text-center'>
-                    {project.name}
-                  </h2>
+              <div className='card-body flex flex-col justify-between p-4'>
+                <div className='text-center min-h-16'>
+                  <h2 className='text-lg font-bold'>{project.name}</h2>
                   <div className='badge badge-outline'>{project.category}</div>
                 </div>
-
-                <p className='text-sm text-gray-700 my-4 line-clamp-3 min-h-24'>
+                <p className='text-sm text-gray-700 line-clamp-3 min-h-24'>
                   {project.details?.description || ''}
                 </p>
-
-                <div className='card-actions justify-end mt-3'>
+                <div className='card-actions flex-wrap justify-end mt-3'>
                   {project.role.map((role, idx) => (
                     <div
                       key={idx}
@@ -550,6 +546,40 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Scroll rigth and left to see more projects */}
+        <div className='flex justify-center items-center text-gray-500 text-sm mt-4'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='h-6 w-6 mr-2 transition-transform duration-300 hover:scale-110'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              d='M15 19l-7-7 7-7'
+            />
+          </svg>
+
+          <span>Scroll to see more projects</span>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='h-6 w-6 ml-2 transition-transform duration-300 hover:scale-110'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              d='M9 5l7 7-7 7'
+            />
+          </svg>
         </div>
 
         {/* Empty state when no projects match filter */}

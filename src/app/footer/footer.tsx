@@ -54,7 +54,7 @@ const socials: SocialItem[] = [
 export default function Footer() {
   return (
     <footer
-      className='footer footer-center bg-base-200 text-base-content rounded p-10'
+      className='footer footer-center bg-base-200 text-base-content rounded p-10 '
       id='contact'
     >
       <nav className='grid grid-flow-col gap-4 mb-4'>
@@ -64,29 +64,30 @@ export default function Footer() {
           </Link>
         ))}
       </nav>
+
       <nav>
-        <div className='flex justify-center space-x-4'>
+        <div className='flex flex-col md:flex-row justify-center gap-4'>
           {socials.map((social, index) => (
             <div key={index} className='flex items-center'>
               <Link
                 href={social.href}
                 target='_blank'
                 rel='noopener noreferrer'
-                // aria-label={`Follow ${
-                //   social.profile
-                // } on ${social.icon.name.replace('Fa', '')}`}
                 className='flex flex-row gap-3 items-center hover:underline'
               >
                 <social.icon className='w-6 h-6' aria-hidden='true' />
                 <span>{social.profile}</span>
               </Link>
               {index < socials.length - 1 && (
-                <span className='divider divider-horizontal'>|</span>
+                <span className='hidden md:inline-block divider divider-horizontal'>
+                  |
+                </span>
               )}
             </div>
           ))}
         </div>
       </nav>
+
       <aside className='mt-4'>
         <p>Copyright © {new Date().getFullYear()} - Latthaphon Portfolio</p>
       </aside>
