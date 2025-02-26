@@ -84,7 +84,10 @@ const experiences: Record<string, Experience[]> = {
       img: [ta1, ta2],
       date: '2022',
       description: [
-        'Assisted the professor in teaching Data Structures to second-year students by providing guidance, answering questions, and clarifying concepts. Helped grade assignments and worked collaboratively with another assistant to support students in their learning process.',
+        'Assisted the professor in teaching Data Structures to second-year students.',
+        'Provided guidance, answered questions, and clarified concepts.',
+        'Helped grade assignments.',
+        'Worked collaboratively with another assistant to support students in their learning process.',
       ],
     },
     {
@@ -94,7 +97,10 @@ const experiences: Record<string, Experience[]> = {
       at: 'Khon Kaen University',
       date: '2021',
       description: [
-        'Served as a mentor for high school students attending the CESCa camp at the university. Responsibilities included hosting events as an emcee, ensuring the well-being of participants, and engaging with students interested in programming and the Digital Media Engineering (DME) field.',
+        'Served as a mentor for high school students at the CESCa camp.',
+        'Hosted events as an emcee.',
+        'Ensured the well-being of participants.',
+        'Engaged with students interested in programming and the Digital Media Engineering (DME) field.',
       ],
     },
   ],
