@@ -476,11 +476,11 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className='carousel carousel-center bg-primary bg-opacity-30 rounded-box min-w-full max-w-full overflow-x-auto p-4 space-x-4'>
+        <div className='carousel carousel-center rounded-lg shadow-xl min-w-full max-w-full overflow-x-auto p-4 space-x-4'>
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className='card bg-base-100 shadow-2xl hover:shadow-2xl transition-transform duration-300 hover:scale-105 cursor-pointer w-80 h-[60vh] flex-shrink-0'
+              className='card bg-base-100 border-2 hover:shadow-sm transition-transform duration-300 hover:scale-105 cursor-pointer w-80 h-[60vh] flex-shrink-0'
               onClick={() => handleProjectClick(project)}
             >
               <figure className='relative h-48 w-full overflow-hidden'>
@@ -550,9 +550,10 @@ export default function Projects() {
 
         {/* Scroll rigth and left to see more projects */}
         <div className='flex justify-center items-center text-gray-500 text-sm mt-4'>
+          {/* translate x ให้เลื่อนไปทางซ้ายไปเรื่อยๆ */}
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='h-6 w-6 mr-2 transition-transform duration-300 hover:scale-110'
+            className='h-6 w-6 mr-2 transition-transform duration-300 hover:scale-110 animate-scroll'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
@@ -568,7 +569,7 @@ export default function Projects() {
           <span>Scroll to see more projects</span>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='h-6 w-6 ml-2 transition-transform duration-300 hover:scale-110'
+            className='h-6 w-6 ml-2 transition-transform duration-300 hover:scale-110 animate-scroll'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
