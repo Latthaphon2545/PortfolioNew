@@ -24,6 +24,13 @@ interface Project {
   category: string
   group: boolean
   leader: boolean
+  linkProject?: {
+    poster?: string
+    github?: string
+    document?: string
+    game?: string
+    prototype?: string
+  }
   details?: {
     description: string
     details: string[]
@@ -51,6 +58,11 @@ const projects: Project[] = [
     category: 'Mobile',
     group: true,
     leader: true,
+    linkProject: {
+      poster:
+        'https://www.canva.com/design/DAF_-dGMEsg/OVuAA1uS4rIgNtovTTC0dw/view',
+      github: 'https://github.com/Latthaphon2545/Mobile',
+    },
     details: {
       description:
         'To streamline the restaurant booking process, improve customer experience, and potentially increase restaurant capacity by offering real-time table availability and a queue management system',
@@ -70,6 +82,12 @@ const projects: Project[] = [
     category: 'Game',
     group: true,
     leader: true,
+    linkProject: {
+      document:
+        'https://drive.google.com/file/d/1h--JoItnqOBw50h-Ty3Zn3qJxqxhIcyc/view',
+      github: 'https://github.com/Latthaphon2545/After-School',
+      game: 'https://games-lat.itch.io/after-school?secret=K5blYNO4sUPzsKJOsEPTwOtqozY',
+    },
     details: {
       description:
         'AFTER SCHOOL is a 3D horror game that combines puzzle-solving and stealth elements. The game is set in a haunted school where the protagonist, Tsuki, must escape while avoiding three ghosts.',
@@ -93,6 +111,11 @@ const projects: Project[] = [
     category: 'Game',
     group: true,
     leader: false,
+    linkProject: {
+      document:
+        'https://www.canva.com/design/DAFRWkijjlE/IeaUaIDFIR59JbHbcF_jXQ/edit',
+      github: 'https://github.com/Latthaphon2545/oop-proj22-6256',
+    },
     details: {
       description:
         'Tower of Mathematics for children who are not good at math in elementary school.',
@@ -114,6 +137,9 @@ const projects: Project[] = [
     category: 'Game',
     group: false,
     leader: false,
+    linkProject: {
+      github: 'https://github.com/Latthaphon2545/Covid19',
+    },
     details: {
       description:
         'Covid19War is an engaging 2D shooter game developed using the Pygame library. Players control a character tasked with defeating COVID-19 viruses and confronting formidable bosses. The game incorporates power-up items, a scoring system, immersive sound effects, and progressive difficulty for an enjoyable gaming experience.',
@@ -133,6 +159,12 @@ const projects: Project[] = [
     category: 'UI/UX',
     group: true,
     leader: true,
+    linkProject: {
+      document:
+        'https://www.canva.com/design/DAFyL2ZkY2w/vIlpWp9G07UATH764oPJPA/edit',
+      prototype:
+        'https://www.figma.com/design/a3P3rmpvwAYY3DpNcBc8w0/Final_Group3-Game_top-up',
+    },
     details: {
       description:
         'Reload Rocket is a game top-up website that allows users to purchase game credits and redeem codes for various games.',
@@ -152,6 +184,12 @@ const projects: Project[] = [
     category: 'UI/UX',
     group: true,
     leader: true,
+    linkProject: {
+      document:
+        'https://www.canva.com/design/DAFwUFwzK_o/4zd3I7LZYt7gYWD07NF9DA/edit?utm_content=DAFwUFwzK_o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
+      prototype:
+        'https://www.figma.com/proto/a3L7pdrp2zeT7BkBkxyuXk/course--registration?page-id=0%3A1&node-id=11-23&starting-point-node-id=15%3A3690&mode=design&t=CR2MJrFEiR71DAlz-1',
+    },
     details: {
       description:
         'User-friendly interface design for an educational course registration system.',
@@ -172,6 +210,12 @@ const projects: Project[] = [
     category: 'Web',
     group: true,
     leader: true,
+    linkProject: {
+      document:
+        'https://docs.google.com/presentation/d/1ONVzvDBIZIZ1TGu56-_96zxAgEG5sUhaxZztIwakZ-A/edit?usp=sharing',
+      github:
+        'https://github.com/Latthaphon2545/IWP23-08-Orderingfood-restaurantPOS.git',
+    },
     details: {
       description:
         'An online food ordering system that simplifies ordering, payments, and safety with online menus and contactless transactions.',
@@ -295,6 +339,41 @@ export default function Projects() {
     `
     }
 
+    let linkProjectHTML = ''
+    if (project.linkProject) {
+      linkProjectHTML = `
+      <h3 class="font-semibold text-lg mb-3">More Information</h3>
+      <div class="flex flex-wrap justify-center gap-3">
+        ${
+          project.linkProject.poster
+            ? `<a href="${project.linkProject.poster}" target="_blank" class="btn btn-sm btn-outline">Poster</a>`
+            : ''
+        }
+        ${
+          project.linkProject.github
+            ? `<a href="${project.linkProject.github}" target="_blank" class="btn btn-sm btn-outline">GitHub</a>`
+            : ''
+        }
+        ${
+          project.linkProject.document
+            ? `<a href="${project.linkProject.document}" target="_blank" class="btn btn-sm btn-outline">Document</a>`
+            : ''
+        }
+        ${
+          project.linkProject.game
+            ? `<a href="${project.linkProject.game}" target="_blank" class="btn btn-sm btn-outline">Game</a>`
+            : ''
+        }
+        ${
+          project.linkProject.prototype
+            ? `<a href="${project.linkProject.prototype}" target="_blank" class="btn btn-sm btn-outline">Prototype</a>`
+            : ''
+        }
+
+      </div>
+    `
+    }
+
     // ใช้ description จาก project.details ถ้ามี
     const description =
       project.details && project.details.description
@@ -353,6 +432,7 @@ export default function Projects() {
       
       <!-- Additional Details Section -->
       ${detailsListHTML}
+      ${linkProjectHTML}
     </div>
   `
 
