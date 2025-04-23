@@ -25,6 +25,7 @@ import {
   SiFirebase,
 } from 'react-icons/si'
 import { VscAzure } from 'react-icons/vsc'
+import { PdfViewerModule } from 'ng2-pdf-viewer'
 
 const skills = [
   { name: 'TypeScript', icon: SiTypescript },
@@ -72,6 +73,13 @@ export default function HomePage() {
                   className='px-6 py-3 btn btn-outline btn-primary hover:text-neutral'
                 >
                   About Me
+                </Link>
+                <Link
+                  href='/LatthaphonResume.pdf'
+                  target='_blank'
+                  className='px-6 py-3 btn btn-outline btn-primary hover:text-neutral'
+                >
+                  View Resume
                 </Link>
               </div>
             </div>
