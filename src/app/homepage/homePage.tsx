@@ -25,7 +25,6 @@ import {
   SiFirebase,
 } from 'react-icons/si'
 import { VscAzure } from 'react-icons/vsc'
-import { PdfViewerModule } from 'ng2-pdf-viewer'
 
 const skills = [
   { name: 'TypeScript', icon: SiTypescript },
