@@ -14,6 +14,9 @@ import {
   SiMongodb,
   SiAmazon,
   SiFirebase,
+  SiSequelize,
+  SiPrisma,
+  SiMysql,
 } from 'react-icons/si'
 import { VscAzure } from 'react-icons/vsc'
 
@@ -29,12 +32,17 @@ const skillCategories = {
   ],
   Backend: [
     { name: 'Node.js', icon: SiNodedotjs, color: '#339933', value: 90 },
-    { name: 'Firebase', icon: SiFirebase, color: '#FFCA28', value: 70 },
   ],
-  Database: [{ name: 'MongoDB', icon: SiMongodb, color: '#47A248', value: 90 }],
+  Database: [
+    { name: 'MongoDB', icon: SiMongodb, color: '#47A248', value: 90 },
+    { name: 'Firebase', icon: SiFirebase, color: '#FFCA28', value: 70 },
+    { name: 'MySQL', icon: SiMysql, color: '#4479A1', value: 50 },
+    { name: 'Sequelize', icon: SiSequelize, color: '#52B0E7', value: 50 },
+    { name: 'Prisma', icon: SiPrisma, color: '#2D3748', value: 50 },
+  ],
   'DevOps & Tools': [
     { name: 'Git', icon: SiGit, color: '#F05032', value: 50 },
-    { name: 'AWS', icon: SiAmazon, color: '#FF9900', value: 40 },
+    // { name: 'AWS', icon: SiAmazon, color: '#FF9900', value: 40 },
     { name: 'Azure AD', icon: VscAzure, color: '#0078D4', value: 50 },
   ],
 }
@@ -80,14 +88,14 @@ const Skills: React.FC = () => {
                     <h4 className='text-sm sm:text-base font-medium text-center'>
                       {skill.name}
                     </h4>
-                    <div className='w-full mt-2 flex items-center justify-between gap-2'>
+                    {/* <div className='w-full mt-2 flex items-center justify-between gap-2'>
                       <progress
                         className='progress progress-primary'
                         value={skill.value}
                         max='100'
                       />
                       <span className='font-semibold'>{skill.value}%</span>
-                    </div>
+                    </div> */}
                   </div>
                 )
               })}
