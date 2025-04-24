@@ -12,7 +12,7 @@ import {
   SiTailwindcss,
   SiGit,
   SiMongodb,
-  SiAmazon,
+  // SiAmazon,
   SiFirebase,
   SiSequelize,
   SiPrisma,
